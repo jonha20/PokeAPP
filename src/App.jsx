@@ -9,11 +9,18 @@ import Main from "./components/Main";
 import Footer from "./components/Footer";
 
 function App() {
+  const [pokemon, setPokemon] = useState([]);
+  const updatePokemon = (newPokemon) => {
+    setPokemon([ ...pokemon, newPokemon]) 
+  };
   return (
     <>
       <BrowserRouter>
         <Header />
-        <Main />
+        <UserContext.Provider value={{ pokemon, updatePokemon }}>
+          <Main />
+        </UserContext.Provider>
+        
       </BrowserRouter>
       <Footer />
     </>

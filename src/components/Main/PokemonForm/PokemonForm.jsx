@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState ,useContext} from "react";
 import { useForm } from "react-hook-form";
+import { UserContext } from "../../../context/userContext";
 import "./PokemonForm.css";
 
 const pokemonTypes = [
@@ -10,17 +11,16 @@ const pokemonTypes = [
 
 const PokemonForm = () => {
   const { register, handleSubmit, reset } = useForm();
+  const { updatePokemon } = useContext(UserContext);
   const [values, setValues] = useState({
-    id: "",
     name: "",
     typeOne: "",
     typeTwo: "",
     image: ""
   });
   const onSubmit = (data) => {
-    setValues({
-      id: data.id,
-      name: data.name,
+    updatePokemon({
+       name: data.name.toLowerCase(),
       typeOne: data.typeOne,
       typeTwo: data.typeTwo,
       image: data.image
@@ -50,7 +50,6 @@ const PokemonForm = () => {
     <>
     <div className="pokemon-form-container">
        <form onSubmit={handleSubmit(onSubmit)}>
-        <input type="number" name="id" placeholder="Enter id (number)" required {...register("id")}/>
         <input type="text" name="name" placeholder="Enter Pokemon Name" minLength="3" required {...register("name")}/>
      <select name="typeOne" required {...register("typeOne")}>
           <option value="">Select Type One</option>

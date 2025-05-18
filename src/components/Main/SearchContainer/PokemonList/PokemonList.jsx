@@ -7,18 +7,23 @@ import { v4 as uuidv4 } from "uuid";
 const PokemonList = ({ pokemon }) => {
   const [pokemonDetails, setPokemonDetails] = useState({});
 
+
+
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get(pokemon.url);
-        setPokemonDetails(response.data);
-      } catch (error) {
+        let result = response.data
+        // result = {...result, ...userPokemon}
+        setPokemonDetails(result);
+      } catch (error) { 
         console.error("Error fetching data:", error);
       }
     };
     fetchData();
   }, []);
 
+  
   return (
     <>
       <PokemonCard

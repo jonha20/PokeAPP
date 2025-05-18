@@ -1,41 +1,32 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useDebounce } from "use-debounce";
 import "./Search.css";
 
 const Search = ({ setPokemon, pokemonList }) => {
-  const [pokemonName, setPokemonName] = useState({ name: "" });
-  const navigate = useNavigate();
+  const [pokemonName, setPokemonName] = useState("");
+  const [debouncedText] = useDebounce(pokemonName, 2000);
 
-  const handleChange = (e) => {
-    setPokemonName({
-      ...pokemonName,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
+   useEffect(() => {
     const filtered = pokemonList.filter((poke) =>
-      poke.name.toLowerCase().includes(pokemonName.name.toLowerCase())
+      poke.name.toLowerCase().includes(debouncedText.toLowerCase())
     );
     setPokemon(filtered);
-    setPokemonName({ name: "" });
-    //navigate("/detais");
+  }, [debouncedText, pokemonList, setPokemon]);
+
+   const handleChange = (e) => {
+    setPokemonName(e.target.value);
   };
 
   return (
     <>
      <div className="search-bar-container">
-      <form onSubmit={handleSubmit}>
         <input
           type="text"
           name="name"
-          value={pokemonName.name}
+          value={pokemonName}
           onChange={handleChange}
           placeholder="Search Pokemon"
         />
-        <button type="submit">Search</button>
-      </form>
       </div>
     </>
   );

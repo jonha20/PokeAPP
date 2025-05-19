@@ -1,0 +1,33 @@
+footer {
+  width: 100%;
+  background: #fff;
+  border-top: 1px solid #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 1rem 0;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 100;
+}
+
+.footer-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s;
+}
+
+.footer-icon:hover {
+  transform: scale(1.15);
+  opacity: 0.8;
+}
+
+@media (max-width: 600px) {
+  .footer {
+    gap: 1rem;
+    padding: 0.7rem 0;
+  }
+}

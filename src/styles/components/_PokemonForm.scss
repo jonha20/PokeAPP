@@ -1,0 +1,67 @@
+@use "../utils/variables.scss" as var;
+
+.pokemon-form-container {
+  width: 100%;
+  max-width: 400px;
+  margin: 2rem auto 0 auto;
+  padding: 1.5rem 1rem;
+  background: var.$white;
+  border-radius: 18px;
+  box-shadow: 0 2px 16px var.$black;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.pokemon-form-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.pokemon-form-container {
+  input,
+  select {
+    padding: 0.7rem 1rem;
+    border: 2px solid var.$primary-color;
+    border-radius: 12px;
+    font-size: 1.05rem;
+    background: var.$white;
+    color: var.$black;
+    outline: none;
+    transition: border 0.2s, box-shadow 0.2s;
+  }
+}
+
+.pokemon-form-container {
+  input:focus,
+  select:focus {
+    border-color: var.$primary-color;
+    box-shadow: 0 2px 8px rgba(255, 152, 0, 0.1);
+  }
+}
+
+.pokemon-form-container {
+  button[type="submit"] {
+    background: var.$primary-color;
+    color: var.$white;
+    border: none;
+    border-radius: 12px;
+    padding: 0.8rem 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 0.5rem;
+  }
+  button[type="submit"]:hover {
+    background: var.$primary-color;
+  }
+}
+
+@media (min-width: 600px) {
+  .pokemon-form-container {
+    padding: 2rem 2.5rem;
+    max-width: 420px;
+  }
+}

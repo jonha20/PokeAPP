@@ -1,41 +1,44 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import "./Search.css";
+import React, { useState, useEffect ,useContext} from "react";
+import { useDebounce } from "use-debounce";
+import { UserContext } from "../../../../context/userContext";
 
-const Search = ({ setPokemon, pokemonList }) => {
-  const [pokemonName, setPokemonName] = useState({ name: "" });
-  const navigate = useNavigate();
+const Search = ({ setPokemon, pokemonList }) => { 
+  const { pokemon } = useContext(UserContext);
+  const [pokemonName, setPokemonName] = useState("");
+  const [debouncedText] = useDebounce(pokemonName, 2000);
+ 
 
-  const handleChange = (e) => {
-    setPokemonName({
-      ...pokemonName,
-      [e.target.name]: e.target.value,
-    });
+   useEffect(() => {
+  // Combina los Pokémon de la API y los del usuario
+  const allPokemon = [
+    ...pokemonList,
+    ...(pokemon || [])
+  ];
+  console.log(allPokemon);
+  console.log(debouncedText);
+  console.log(pokemonList);
+  const filtered = allPokemon.filter((poke) =>
+    poke.name.toLowerCase().includes(debouncedText.toLowerCase())
+  );
+  setPokemon(filtered);
+}, [debouncedText, pokemonList, pokemon, setPokemon]);
+
+   const handleChange = (e) => {
+    setPokemonName(e.target.value);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const filtered = pokemonList.filter((poke) =>
-      poke.name.toLowerCase().includes(pokemonName.name.toLowerCase())
-    );
-    setPokemon(filtered);
-    setPokemonName({ name: "" });
-    //navigate("/detais");
-  };
+  
 
   return (
     <>
      <div className="search-bar-container">
-      <form onSubmit={handleSubmit}>
         <input
           type="text"
           name="name"
-          value={pokemonName.name}
+          value={pokemonName}
           onChange={handleChange}
           placeholder="Search Pokemon"
         />
-        <button type="submit">Search</button>
-      </form>
       </div>
     </>
   );

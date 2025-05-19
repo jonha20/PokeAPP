@@ -1,3 +1,5 @@
+@use '../utils/variables.scss' as var;
+
 .search-bar-container {
   display: flex;
   width: 30%;
@@ -9,18 +11,18 @@
  input[type="text"] {
   flex: 1;
   padding: 0.7rem 1rem;
-  border: 2px solid #ff9800;
+  border: 2px solid var.$primary-color;
   border-radius: 12px;
   font-size: 1.1rem;
-  background: #fffbe7;
-  color: #333;
+  background: var.$white;
+  color: var.$black;
   outline: none;
-  box-shadow: 0 2px 8px rgba(255,152,0,0.07);
+  box-shadow: 0 2px 8px var.$grey;
   transition: border 0.2s, box-shadow 0.2s;
 }
  input[type="text"]:focus {
-  border: 2px solid #ff9800;
-  background: #fffde4;
-  box-shadow: 0 4px 16px rgba(255,152,0,0.12);
+  border: 2px solid var.$primary-color;
+  background: var.$white;
+  box-shadow: 0 4px 16px var.$grey;
 
  }

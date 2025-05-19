@@ -1,12 +1,64 @@
-# React + Vite
+# 🧭 Buscador de Pokémons - React App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este proyecto es una aplicación web construida con **React** que permite buscar y visualizar información sobre Pokémons utilizando la API pública de [PokeAPI](https://pokeapi.co/).
 
-Currently, two official plugins are available:
+## 🚀 Características principales
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 🧾 Vista principal con un listado de Pokémons.
+- 🔍 Vista detallada de cada Pokémon con información específica.
+- 🔄 Consumo de la API de PokéAPI usando **Axios**.
+- 🍔 Menú tipo hamburguesa para navegación responsiva.
+- 🎨 Estilos personalizados utilizando **SASS**.
+- 🆔 Generación de identificadores únicos con **UUID**.
+- 📝 Formulario para añadir Pokémons manualmente.
+- 📦 Manejo de estado y navegación usando hooks de React.
+- 🔗 Comunicación entre componentes mediante **useContext**.
 
-## Expanding the ESLint configuration
+## 🌐 Link de despliegue
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Accede al proyecto en línea aquí:  
+👉 [https://dulcet-arithmetic-3e7078.netlify.app](https://dulcet-arithmetic-3e7078.netlify.app) 
+
+## 📸 Capturas de pantalla
+
+### 🏠 Vista principal (Listado de Pokémons)
+
+<div align="center">
+  <img src="./src/assets/principal.gif" alt="Vista Principal" />
+</div>
+
+### 📄 Vista detallada de un Pokémon
+
+<div align="center">
+  <img src="./src/assets/details.png" alt="Vista Detallada" />
+</div>
+
+### ➕ Formulario para añadir Pokémons
+
+<div align="center">
+  <img src="./src/assets/form.png" alt="Formulario" />
+</div>
+
+## 🧰 Tecnologías y librerías utilizadas
+
+- [React](https://reactjs.org/)
+- [Axios](https://axios-http.com/)
+- [SASS](https://sass-lang.com/)
+- [UUID](https://www.npmjs.com/package/uuid)
+- [Debounce](https://www.npmjs.com/package/use-debounce)
+- [PokeAPI](https://pokeapi.co/)
+
+## 🧠 React Router y Hooks utilizados
+
+- `useState` (hook)
+- `useEffect` (hook)
+- `useContext` (hook)
+- `useParams` (React Router)
+- `useNavigate` (React Router)
+- `useLocation` (React Router)
+- `BrowserRouter` (React Router)
+
+## 📝 Descripción adicional
+
+- El **formulario** para añadir nuevos Pokémons se comunica con el componente de listado utilizando `useContext`, permitiendo mantener sincronizado el estado global del proyecto.
+- Se implementa navegación entre vistas utilizando `react-router-dom`.

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import("./PokemonList.css");
 import PokemonCard from "./PokemonCard";
 import { v4 as uuidv4 } from "uuid";
 

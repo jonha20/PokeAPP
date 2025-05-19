@@ -1,7 +1,6 @@
 import React, { useState ,useContext} from "react";
 import { useForm } from "react-hook-form";
 import { UserContext } from "../../../context/userContext";
-import "./PokemonForm.css";
 
 const pokemonTypes = [
   "normal", "fire", "water", "grass", "electric", "ice", "fighting", "poison",

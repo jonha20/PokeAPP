@@ -3,7 +3,6 @@ import axios from "axios";
 import PokemonList from "./PokemonList";
 import Search from "./Search";
 import { v4 as uuidv4 } from "uuid";
-import "./SearchContainer.css";
 
 const SearchContainer = () => {
   const [allPokemon, setAllPokemon] = useState([]);
@@ -13,7 +12,7 @@ const SearchContainer = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0`
+          `https://pokeapi.co/api/v2/pokemon?limit=500&offset=0`
         );
         setAllPokemon(response.data.results);
         setPokemon(response.data.results);

@@ -1,6 +1,5 @@
 import React, { useState, useEffect ,useContext} from "react";
 import { useDebounce } from "use-debounce";
-import "./Search.css";
 import { UserContext } from "../../../../context/userContext";
 
 const Search = ({ setPokemon, pokemonList }) => { 

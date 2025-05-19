@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams, useLocation } from "react-router-dom";
-import "./PokemonDetails.css";
 import { useNavigate } from "react-router-dom";
 
 const PokemonDetails = () => {

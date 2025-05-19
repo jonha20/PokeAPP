@@ -1,9 +1,11 @@
+@use '../utils/variables.scss' as var;
+
 .pokemon-details-card {
-  background: #fff;
+  background: var.$white;
   border-radius: 24px;
   margin: 0.5rem;
   margin-top: 1rem;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 24px var.$black;
   overflow: hidden;
   position: relative;
   max-width: 420px;
@@ -14,8 +16,8 @@
 }
 
 .details-header {
-  background: #6dc36d;
-  color: #fff;
+  background: var.$background-details;
+  color: var.$white;
   padding: 1.5rem 1rem 2.5rem 1rem;
   position: relative;
   z-index: 2;
@@ -24,27 +26,27 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
 
-.details-header h1 {
-  font-size: 2rem;
-  font-weight: 700;
-  margin: 0;
-  text-transform: capitalize;
-  letter-spacing: 1px;
+  h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+  }
 }
 
 .pokemon-id {
   font-size: 1.1rem;
   font-weight: 600;
-  color: #fff;
+  color: var.$white;
   opacity: 0.8;
 }
 
 .back-btn {
   background: none;
   border: none;
-  color: #fff;
+  color: var.$white;
   font-size: 2rem;
   cursor: pointer;
   margin-right: 0.5rem;
@@ -63,7 +65,7 @@
   height: 180px;
   background: radial-gradient(
     circle at 70% 30%,
-    #ffffff22 40%,
+    var.$grey 40%,
     transparent 80%
   );
   z-index: 0;
@@ -92,33 +94,33 @@
 .type-badge {
   padding: 0.3rem 1.2rem;
   border-radius: 999px;
-  color: #fff;
+  color: var.$white;
   font-weight: 600;
   font-size: 1rem;
   text-transform: capitalize;
-  background: #aaa;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+  background: var.$grey;
+  box-shadow: 0 2px 8px var.$black;
 }
 
 .type-grass {
-  background: #6dc36d;
+  background:  var.$type-grass;
 }
 .type-poison {
-  background: #b97fc9;
+  background: var.$type-poison;
 }
 .type-fire {
-  background: #fd7d24;
+  background: var.$type-fire;
 }
 .type-water {
-  background: #4592c4;
+  background: var.$type-water;
 }
 /* Añade más tipos según necesites */
 
 .details-section {
   margin: 1.5rem 1rem 0 1rem;
-  background: #fff;
+  background: var.$white;
   border-radius: 16px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  box-shadow: 0 2px 8px var.$black;
   padding: 1.2rem 1rem;
 }
 
@@ -141,20 +143,21 @@
 
 .about-label {
   font-size: 0.8rem;
-  color: #888;
+  color: var.$grey;
   margin-top: 0.2rem;
 }
 
 .details-section.stats {
   margin-top: 1.5rem;
-}
 
-.details-section.stats h2 {
-  color: #6dc36d;
+  h2 {
+  color: var.$background-details;
   font-size: 1.2rem;
   margin-bottom: 1rem;
   text-align: center;
 }
+}
+
 
 .stats-list {
   display: flex;
@@ -172,14 +175,14 @@
 .stat-name {
   width: 110px; /* Más ancho para el nombre */
   font-weight: 700;
-  color: #6dc36d;
+  color: var.$background-details;
   font-size: 0.95rem;
 }
 
 .stat-value {
   width: 40px; /* Más ancho para el número */
   font-family: monospace;
-  color: #444;
+  color:  var.$black;
   font-size: 0.95rem;
   text-align: right;
 }
@@ -187,14 +190,14 @@
 .stat-bar-bg {
   flex: 1;
   height: 8px;
-  background: #e0f2e9;
+  background: var.$white;
   border-radius: 8px;
   overflow: hidden;
 }
 
 .stat-bar {
   height: 100%;
-  background: #6dc36d;
+  background: var.$background-details;
   border-radius: 8px;
   transition: width 0.3s;
 }
